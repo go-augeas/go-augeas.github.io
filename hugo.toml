@@ -1,0 +1,27 @@
+baseURL = "https://go-augeas.github.io/"
+title = "go-augeas"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Configuration tree"
+  status = "ready"
+  blurb = "An ordered tree of labelled nodes with values, built by `New()`; every entry addressable by path, with `Root`, `Label` and node insertion/removal preserving order."
+[[params.phases]]
+  name = "Path language"
+  status = "ready"
+  blurb = "Absolute and relative paths, `*` name wildcard, `//` descendant axis, `.` / `..`, positional `[n]` / `[last()]`, value `[sub = 'v']`, regexp `[sub =~ 're']` (RE2), existence predicates, union `|`, and `$var` bindings."
+[[params.phases]]
+  name = "Editing API"
+  status = "ready"
+  blurb = "`Get` / `Exists` / `Set` / `SetMultiple` / `Insert` / `Remove` / `Move` / `Match` / `Label` / `DefineVariable` / `DefineNode` — the full tree-mutation surface over path expressions."
+[[params.phases]]
+  name = "Lenses & the FileSystem seam"
+  status = "ready"
+  blurb = "`Hosts`, `Fstab`, `Shellvars` / `Simplevars` and `Ini` / `Keyvalue` round-trip via `TextStore` / `TextRetrieve`; `Load` / `Save` run through an injectable `FileSystem` seam, and load failures surface under `/augeas//error`."
+[[params.phases]]
+  name = "Wider lens catalogue & the `.aug` DSL"
+  status = "planned"
+  blurb = "Upstream ships ~200 lenses; this engine ships four hand-written ones. Interpreting the Augeas `.aug` lens DSL, byte-offset `Span` tracking and blank-line preservation are documented follow-ons."
