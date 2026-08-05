@@ -86,7 +86,7 @@
       <span class="pill">config tree</span>
       <span class="pill">XPath-like paths</span>
       <span class="pill">lenses</span>
-      <span class="pill">Hosts · Fstab · INI</span>
+      <span class="pill">232 upstream lenses</span>
       <span class="pill">get / set / insert / move</span>
       <span class="pill">injectable FS seam</span>
       <span class="pill">100% coverage</span>
@@ -105,7 +105,7 @@
   </header>
 
   <main class="wrap">
-    <p class="lead">go-augeas is a pure-Go (<code>CGO_ENABLED=0</code>) implementation of the core of <strong>Augeas</strong>, the configuration-editing tool from the Puppet ecosystem. It models configuration files as an ordered <strong>tree</strong>, exposes an <strong>XPath-like path language</strong> to query and edit that tree, and uses <strong>lenses</strong> to translate between the tree and concrete file syntax (<code>/etc/hosts</code>, <code>/etc/fstab</code>, shell vars, INI). Load and save go through an injectable <code>FileSystem</code> seam, so parsing and error branches are covered deterministically without touching the disk. It imports only the Go standard library, holds 100% test coverage, and cross-compiles to the six 64-bit Go targets and WebAssembly.</p>
+    <p class="lead">go-augeas is a pure-Go (<code>CGO_ENABLED=0</code>) implementation of the core of <strong>Augeas</strong>, the configuration-editing tool from the Puppet ecosystem. It models configuration files as an ordered <strong>tree</strong>, exposes an <strong>XPath-like path language</strong> to query and edit that tree, and uses <strong>lenses</strong> to translate between the tree and concrete file syntax. A from-scratch pure-Go interpreter for the Augeas <code>.aug</code> lens DSL reads the entire embedded upstream lens corpus (232 modules) plus five original contrib lenses (Wireguard, Rclone, Caddyfile, Nftables, Unbound); write-back through those lenses is verified correct internally but not yet exposed via the public API. Load and save go through an injectable <code>FileSystem</code> seam, so parsing and error branches are covered deterministically without touching the disk. It imports only the Go standard library, holds 100% test coverage, and cross-compiles to the six 64-bit Go targets and WebAssembly.</p>
 
     <section class="grid">
       {{ range .Site.Params.phases }}
@@ -120,7 +120,7 @@
       <li><span class="status active">active</span> in progress (substantial work shipped, not yet finished)</li>
       <li><span class="status planned">planned</span> not started yet (or documented deferral)</li>
     </ul>
-    <p class="principles">The configuration-editing engine of the go-augeas org: an ordered tree, an XPath-like path language and hand-written lenses, all in dependency-free pure Go. Part of the pure-Go Puppet stack alongside <a href="https://github.com/go-facter">go-facter</a>, <a href="https://github.com/go-hiera">go-hiera</a>, <a href="https://github.com/go-pcore">go-pcore</a> and <a href="https://github.com/go-puppet">go-puppet</a>.</p>
+    <p class="principles">The configuration-editing engine of the go-augeas org: an ordered tree, an XPath-like path language and a pure-Go interpreter for the whole embedded Augeas lens corpus, all dependency-free. Part of the pure-Go Puppet stack alongside <a href="https://github.com/go-facter">go-facter</a>, <a href="https://github.com/go-hiera">go-hiera</a>, <a href="https://github.com/go-pcore">go-pcore</a> and <a href="https://github.com/go-puppet">go-puppet</a>.</p>
   </main>
 
   <footer class="wrap">

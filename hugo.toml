@@ -18,10 +18,10 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
   status = "ready"
   blurb = "`Get` / `Exists` / `Set` / `SetMultiple` / `Insert` / `Remove` / `Move` / `Match` / `Label` / `DefineVariable` / `DefineNode` — the full tree-mutation surface over path expressions."
 [[params.phases]]
-  name = "Lenses & the FileSystem seam"
+  name = "Embedded `.aug` corpus interpreter"
   status = "ready"
-  blurb = "`Hosts`, `Fstab`, `Shellvars` / `Simplevars` and `Ini` / `Keyvalue` round-trip via `TextStore` / `TextRetrieve`; `Load` / `Save` run through an injectable `FileSystem` seam, and load failures surface under `/augeas//error`."
+  blurb = "A from-scratch pure-Go interpreter reads the entire upstream Augeas 1.14.1 lens corpus (232 modules) plus 5 original contrib lenses (Wireguard, Rclone, Caddyfile, Nftables, Unbound), reachable via `NewEngine().Lens(module, binding)`; `Load` / `Save` run through an injectable `FileSystem` seam. Verified 1791/1791 (100%) against the corpus's own get+put test assertions."
 [[params.phases]]
-  name = "Wider lens catalogue & the `.aug` DSL"
+  name = "Public put for interpreted lenses"
   status = "planned"
-  blurb = "Upstream ships ~200 lenses; this engine ships four hand-written ones. Interpreting the Augeas `.aug` lens DSL, byte-offset `Span` tracking and blank-line preservation are documented follow-ons."
+  blurb = "The interpreter's put (`Build`) is verified correct internally, but the public `Engine.Lens(...)` adapter only wires up `Parse` (get) today; `TextRetrieve`/`Save` don't yet work on corpus/contrib lenses this way. Byte-offset `Span` tracking is a further follow-on."
