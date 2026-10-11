@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} — Augeas configuration-tree editing in pure Go, no cgo</title>
 <meta name="description" content="go-augeas — a pure-Go (CGO_ENABLED=0) implementation of the Augeas configuration-tree model: an XPath-like path language and lenses to parse, query and edit config files.">
 <style>
